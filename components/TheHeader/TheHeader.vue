@@ -33,9 +33,14 @@
 a {
   color: #3e3ea5;
 }
+
+.nav-link.nuxt-link-exact-active {
+  border-bottom: 3px solid deeppink;
+}
+
 a:active,
 a:hover,
-li .nuxt-link-exact-active a {
+li.nuxt-link-exact-active a {
   color: #59b9e4;
 }
 </style>
