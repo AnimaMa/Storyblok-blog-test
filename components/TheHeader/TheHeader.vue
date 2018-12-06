@@ -16,7 +16,7 @@
 
 <style scoped>
 .main-header {
-  background-color: #1f1f27;
+  background-color: #3a214b;
   width: 100%;
   height: 60px;
   display: flex;
@@ -31,7 +31,7 @@
   color: #47494e;
 }
 a {
-  color: #3e3ea5;
+  color: #69ab9c;
 }
 
 .nav-link.nuxt-link-exact-active {

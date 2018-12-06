@@ -25,8 +25,16 @@ export default {
         starts_with: 'blog/'
       })
       .then(res => {
-        console.log(res)
-        return res
+        return {
+          posts: res.data.stories.map(bp => {
+            return {
+              id: bp.slug,
+              title: bp.content.title,
+              previewText: bp.content.summary,
+              thumbnailUrl: bp.content.thumbnail
+            }
+          })
+        }
       })
   }
   // data() {
@@ -53,12 +61,12 @@ export default {
 </script>
 <style scoped>
 #posts {
-  padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   width: 100%;
+  padding: 50px;
 }
 @media (min-width: 35rem) {
   #posts {
