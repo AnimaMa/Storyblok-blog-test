@@ -1,5 +1,7 @@
 <template>
-  <section id="about-page">
+  <section 
+    v-editable="blok"
+    id="about-page">
     <h1>{{ title }}</h1>
     <p>{{ content }}</p>
   </section>
@@ -15,22 +17,28 @@ export default {
       .then(res => {
         console.log(res.data)
         return {
+          blok: res.data.story.content,
           title: res.data.story.content.title,
           content: res.data.story.content.content
         }
       })
+  },
+  mounted() {
+    this.$storyblok.init()
+    this.$storyblok.on('change', () => {
+      location.reload(true)
+    })
   }
 }
 </script>
+
 <style>
 #about-page {
   width: 80%;
-  max-width: 50%;
+  max-width: 500px;
   margin: auto;
 }
-
 #about-page p {
-  display: flex;
   white-space: pre-line;
 }
 </style>

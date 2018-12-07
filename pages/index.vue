@@ -1,3 +1,4 @@
+
 <template>
   <section id="posts">
     <PostPreview
@@ -6,18 +7,16 @@
       :title="post.title"
       :excerpt="post.previewText"
       :thumbnail-image="post.thumbnailUrl"
-      :id="post.id"
-    />
-
+      :id="post.id" />
   </section>
-
 </template>
 
 <script>
-import PostPreview from '@/components/Blog/PostPreview.vue'
-
+import PostPreview from '@/components/Blog/PostPreview'
 export default {
-  components: { PostPreview },
+  components: {
+    PostPreview
+  },
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories', {
@@ -41,36 +40,21 @@ export default {
   //   return {
   //     posts: [
   //       {
-  //         title: 'Title',
-  //         previewText: 'this is awesome text',
-  //         thumbnailUrl: 'https://www.w3schools.com/w3images/fjords.jpg',
-  //         id: 'title-one'
-  //       },
-  //
-  //       {
-  //         title: 'Title twoo',
-  //         previewText: 'this is awesome text 2',
+  //         title: "A New Beginning",
+  //         previewText: "This will be awesome, don't miss it!",
   //         thumbnailUrl:
-  //           'https://images.ctfassets.net/o59xlnp87tr5/nywabPmH5Y6W4geG8IYuk/0a59905671f8d637350df8e7ec9e7fb9/backgrounds-min.jpg?w=360&h=240&fit=fill',
-  //         id: 'title-two'
+  //           "http://www.healthyfood.co.uk/wp-content/uploads/2015/01/Cherry-tomato-bocc-olive-basil-pasta.jpg",
+  //         id: "a-new-beginning"
+  //       },
+  //       {
+  //         title: "A Second Beginning",
+  //         previewText: "This will be awesome, don't miss it!",
+  //         thumbnailUrl:
+  //           "http://www.healthyfood.co.uk/wp-content/uploads/2015/01/Cherry-tomato-bocc-olive-basil-pasta.jpg",
+  //         id: "a-second-beginning"
   //       }
   //     ]
-  //   }
+  //   };
   // }
 }
 </script>
-<style scoped>
-#posts {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 50px;
-}
-@media (min-width: 35rem) {
-  #posts {
-    flex-direction: row;
-  }
-}
-</style>
